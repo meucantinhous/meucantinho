@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Cantinho</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    background: linear-gradient(135deg, #0a0f1f, #000000);
+    color:#ffffff;
+    font-family:'Poppins', sans-serif;
+    overflow-x:hidden;
+}
+
+header{
+    text-align:center;
+    padding:60px 20px;
+}
+
+header h1{
+    font-family:'Playfair Display', serif;
+    font-size:3em;
+    letter-spacing:3px;
+    color:#1e3a8a;
+}
+
+header p{
+    font-size:1.1em;
+    opacity:0.8;
+}
+
+section{
+    max-width:900px;
+    margin:50px auto;
+    padding:30px;
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    backdrop-filter: blur(10px);
+    box-shadow:0 0 40px rgba(30,58,138,0.4);
+    transition:0.4s;
+}
+
+section:hover{
+    transform:scale(1.02);
+    box-shadow:0 0 60px rgba(30,58,138,0.8);
+}
+
+h2{
+    color:#1e3a8a;
+}
+
+button{
+    padding:12px 25px;
+    background:#1e3a8a;
+    border:none;
+    border-radius:30px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0f172a;
+    box-shadow:0 0 20px #1e3a8a;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    opacity:0.6;
+    font-size:0.9em;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Meu Cantinho</h1>
+    <p>Um lugar onde o mundo desacelera… e você é o centro.</p>
+</header>
+
+<section>
+    <h2>Sobre Você</h2>
+    <p>
+        Entre milhões de pessoas, meu olhar escolheu você.
+        Não por acaso. Não por carência.
+        Mas porque quando você sorri,
+        algo dentro de mim entende que está no lugar certo.
+    </p>
+</section>
+
+<section>
+    <h2>O Que Eu Sinto</h2>
+    <p>
+        Não é pressa. Não é exagero.
+        É uma calma intensa.
+        Uma vontade de construir algo que dure mais que as estações.
+        Você me inspira a ser melhor.
+    </p>
+</section>
+
+<section style="text-align:center;">
+    <h2>Se Você Clicar...</h2>
+    <button onclick="alert('Eu escolhi você. Todos os dias.')">
+        Descobrir
+    </button>
+</section>
+
+<footer>
+    Feito com intenção. Não é coincidência.
+</footer>
+
+</body>
+</html>
