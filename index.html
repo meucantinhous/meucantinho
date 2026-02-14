@@ -11,27 +11,21 @@
 body{
     margin:0;
     padding:0;
-    background: linear-gradient(135deg, #0a0f1f, #000000);
-    color:#ffffff;
-    font-family:'Poppins', sans-serif;
+    background: linear-gradient(135deg,#0a0f1f,#000);
+    color:#fff;
+    font-family:'Poppins',sans-serif;
     overflow-x:hidden;
 }
 
 header{
     text-align:center;
-    padding:60px 20px;
+    padding:70px 20px;
 }
 
 header h1{
-    font-family:'Playfair Display', serif;
+    font-family:'Playfair Display',serif;
     font-size:3em;
-    letter-spacing:3px;
     color:#1e3a8a;
-}
-
-header p{
-    font-size:1.1em;
-    opacity:0.8;
 }
 
 section{
@@ -41,18 +35,18 @@ section{
     background:rgba(255,255,255,0.05);
     border-radius:20px;
     backdrop-filter: blur(10px);
-    box-shadow:0 0 40px rgba(30,58,138,0.4);
-    transition:0.4s;
+    box-shadow:0 0 40px rgba(30,58,138,0.3);
+    transition:.6s;
+    opacity:0;
+    transform:translateY(40px);
 }
 
-section:hover{
-    transform:scale(1.02);
-    box-shadow:0 0 60px rgba(30,58,138,0.8);
+section.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-h2{
-    color:#1e3a8a;
-}
+h2{color:#1e3a8a;}
 
 button{
     padding:12px 25px;
@@ -62,7 +56,7 @@ button{
     color:white;
     font-weight:bold;
     cursor:pointer;
-    transition:0.3s;
+    transition:.3s;
 }
 
 button:hover{
@@ -70,11 +64,16 @@ button:hover{
     box-shadow:0 0 20px #1e3a8a;
 }
 
+.timeline div{
+    margin:10px 0;
+    padding:10px;
+    border-left:3px solid #1e3a8a;
+}
+
 footer{
     text-align:center;
     padding:30px;
-    opacity:0.6;
-    font-size:0.9em;
+    opacity:.6;
 }
 </style>
 </head>
@@ -82,40 +81,95 @@ footer{
 <body>
 
 <header>
-    <h1>Meu Cantinho</h1>
-    <p>Um lugar onde o mundo desacelera… e você é o centro.</p>
+<h1>Meu Cantinho</h1>
+<p>Onde o tempo desacelera… e você vira meu norte.</p>
 </header>
 
 <section>
-    <h2>Sobre Você</h2>
-    <p>
-        Entre milhões de pessoas, meu olhar escolheu você.
-        Não por acaso. Não por carência.
-        Mas porque quando você sorri,
-        algo dentro de mim entende que está no lugar certo.
-    </p>
+<h2>Sobre Você</h2>
+<p>
+Entre milhões de caminhos, foi teu sorriso que virou destino.
+Desde então, tudo parece mais leve.
+</p>
 </section>
 
 <section>
-    <h2>O Que Eu Sinto</h2>
-    <p>
-        Não é pressa. Não é exagero.
-        É uma calma intensa.
-        Uma vontade de construir algo que dure mais que as estações.
-        Você me inspira a ser melhor.
-    </p>
+<h2>O Que Eu Sinto</h2>
+<p>
+Não é pressa… nem exagero.
+É paz. Daquelas raras.
+Tipo casa depois de um dia longo.
+</p>
+</section>
+
+<section>
+<h2>Nossa Linha do Tempo</h2>
+<div class="timeline">
+<div>✨ O dia que te conheci — meu mundo mudou.</div>
+<div>💬 Primeira conversa — já senti algo diferente.</div>
+<div>❤️ Hoje — sigo te escolhendo.</div>
+</div>
 </section>
 
 <section style="text-align:center;">
-    <h2>Se Você Clicar...</h2>
-    <button onclick="alert('Eu escolhi você. Todos os dias.')">
-        Descobrir
-    </button>
+<h2>Tempo ao Seu Lado</h2>
+<p id="contador"></p>
+</section>
+
+<section style="text-align:center;">
+<h2>Toca aqui… é nossa vibe 🎧</h2>
+
+<iframe width="300" height="170"
+src="https://www.youtube.com/embed/eVTXPUF4Oz4"
+frameborder="0"
+allow="autoplay; encrypted-media"
+allowfullscreen>
+</iframe>
+
+</section>
+
+<section style="text-align:center;">
+<h2>E agora… isso aqui é só seu 💙</h2>
+
+<button onclick="document.getElementById('video').style.display='block'">
+Assistir surpresa 🎥
+</button>
+
+<br><br>
+
+<video id="video"
+width="320"
+controls
+style="display:none;border-radius:15px;
+box-shadow:0 0 20px rgba(30,58,138,.6);">
+<source src="voce.mp4" type="video/mp4">
+Seu navegador não suporta vídeo.
+</video>
+
 </section>
 
 <footer>
-    Feito com intenção. Não é coincidência.
+Feito com calma… porque sentimento bonito não se faz correndo.
 </footer>
+
+<script>
+const inicio=new Date("2024-08-10"); 
+const hoje=new Date();
+const dias=Math.floor((hoje-inicio)/(1000*60*60*24));
+
+document.getElementById("contador").innerHTML =
+"Já se passaram <b>"+dias+" dias</b> desde que você bagunçou meu mundo ❤️";
+
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+const top=sec.getBoundingClientRect().top;
+if(top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
+</script>
 
 </body>
 </html>
