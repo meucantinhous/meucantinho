@@ -8,8 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-
-/* ===== FUNDO GALÁXIA ===== */
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
@@ -18,23 +16,23 @@ color:white;
 overflow-x:hidden;
 }
 
-#stars1,#stars2{
+/* GALÁXIA FUNDO */
+#stars{
 position:fixed;
 width:100%;
 height:100%;
 background:url("https://i.imgur.com/YKY28eT.png");
+animation:moveStars 120s linear infinite;
+opacity:.5;
 z-index:-2;
 }
-
-#stars1{animation:moveStars 120s linear infinite;opacity:.6;}
-#stars2{animation:moveStars 200s linear infinite reverse;opacity:.3;}
 
 @keyframes moveStars{
 from{background-position:0 0;}
 to{background-position:-10000px 5000px;}
 }
 
-/* ===== PORTAL ===== */
+/* PORTAL */
 #portal{
 position:fixed;
 inset:0;
@@ -62,25 +60,17 @@ animation:pulse 2s infinite;
 100%{transform:scale(1);}
 }
 
-/* ===== HEADER ===== */
 header{
 text-align:center;
 padding:120px 20px 60px;
-animation:fade 3s;
 }
 
 header h1{
 font-family:'Playfair Display',serif;
-font-size:3.2em;
+font-size:3em;
 color:#93c5fd;
 }
 
-@keyframes fade{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;}
-}
-
-/* ===== SEÇÕES ===== */
 section{
 max-width:950px;
 margin:40px auto;
@@ -91,7 +81,6 @@ backdrop-filter:blur(12px);
 box-shadow:0 0 40px rgba(59,130,246,.5);
 }
 
-/* ===== FOTOS ===== */
 .fotos{
 display:flex;
 flex-wrap:wrap;
@@ -105,19 +94,13 @@ height:220px;
 object-fit:cover;
 border-radius:25px;
 box-shadow:0 0 25px #60a5fa;
-cursor:pointer;
 transition:.5s;
 }
 
-.fotos img:hover{
-transform:scale(1.15);
-}
+.fotos img:hover{transform:scale(1.15);}
 
-/* ===== PLAYER BONITO ===== */
-.music-player{
-text-align:center;
-margin-top:40px;
-}
+/* PLAYER */
+.music-player{text-align:center;}
 
 .play-btn{
 display:inline-block;
@@ -125,17 +108,13 @@ padding:18px 40px;
 border-radius:50px;
 background:linear-gradient(45deg,#1e3a8a,#60a5fa);
 color:white;
-font-size:18px;
 cursor:pointer;
 box-shadow:0 0 20px #60a5fa;
 transition:.4s;
 }
 
-.play-btn:hover{
-transform:scale(1.1);
-}
+.play-btn:hover{transform:scale(1.1);}
 
-/* vídeo escondido até clicar */
 #videoMusica{
 display:none;
 max-width:100%;
@@ -143,19 +122,38 @@ border-radius:20px;
 margin-top:20px;
 }
 
-footer{
-text-align:center;
-padding:40px;
-opacity:.7;
+/* FINAL UNIVERSO */
+#universoFinal{
+height:100vh;
+background:black;
+position:relative;
+overflow:hidden;
+margin-top:100px;
 }
 
+#ceu{
+position:absolute;
+width:100%;
+height:100%;
+}
+
+.texto-final{
+position:absolute;
+bottom:60px;
+width:100%;
+text-align:center;
+font-size:24px;
+font-family:'Playfair Display',serif;
+color:#93c5fd;
+}
+
+footer{text-align:center;padding:40px;opacity:.7;}
 </style>
 </head>
 
 <body>
 
-<div id="stars1"></div>
-<div id="stars2"></div>
+<div id="stars"></div>
 
 <!-- PORTAL -->
 <div id="portal">
@@ -171,7 +169,7 @@ opacity:.7;
 </header>
 
 <section>
-<h2>Pra Você, Jaciane</h2>
+<h2>Pra Você</h2>
 <p>
 Minha jaguatirica linda, dona da rua e do meu coração.
 Eu te amo daqui até a lua…
@@ -193,23 +191,10 @@ e se existir outro universo, também.
 <p>
 Eu prometi te fazer feliz…
 e sigo prometendo todos os dias.
-Sem perfeição — só verdade,
-cuidado e vontade de construir vida bonita contigo.
+Sem perfeição — só verdade.
 </p>
 </section>
 
-<section>
-<h2>Carta aberta 💌</h2>
-<p>
-Se a vida fosse filme,
-eu escolheria você em todas as cenas.
-Se fosse música, você seria refrão.
-E se fosse universo…
-você seria minha galáxia favorita.
-</p>
-</section>
-
-<!-- PLAYER INTEGRADO COM GALÁXIA -->
 <section class="music-player">
 <h2>Nossa música 🎵</h2>
 
@@ -218,7 +203,7 @@ você seria minha galáxia favorita.
 </div>
 
 <iframe id="videoMusica"
-src="https://www.youtube.com/embed/bE_A23A_h1c?enablejsapi=1"
+src="https://www.youtube.com/embed/bE_A23A_h1c"
 frameborder="0"
 allow="autoplay; encrypted-media"
 allowfullscreen>
@@ -230,28 +215,33 @@ Quando essa música toca, eu lembro da gente.
 </section>
 
 <footer>
-Feito sem pressa…
+Feito com carinho…
 porque amor bonito gosta de tempo.
 </footer>
+
+<!-- UNIVERSO FINAL -->
+<section id="universoFinal">
+<canvas id="ceu"></canvas>
+<div class="texto-final">
+✨ E mesmo depois de tudo… ainda é você 💙
+</div>
+</section>
 
 <script>
 function abrir(){
 if(document.getElementById("senha").value==="minhalua"){
 document.getElementById("portal").style.opacity="0";
-setTimeout(()=>{
-document.getElementById("portal").style.display="none";
-},2000);
+setTimeout(()=>{document.getElementById("portal").style.display="none";},2000);
 }else alert("Senha errada 👀");
 }
 
 function playMusic(){
 const video=document.getElementById("videoMusica");
 video.style.display="block";
-video.src+="&autoplay=1";
+video.src+="?autoplay=1";
 }
-</script>
 
-<script>
+/* UNIVERSO REALISTA FINAL */
 const canvas=document.getElementById("ceu");
 const ctx=canvas.getContext("2d");
 
@@ -261,7 +251,6 @@ canvas.height=window.innerHeight;
 let estrelas=[];
 let meteoros=[];
 
-/* estrelas com brilho variável */
 for(let i=0;i<350;i++){
 estrelas.push({
 x:Math.random()*canvas.width,
@@ -271,21 +260,18 @@ op:Math.random()
 });
 }
 
-/* meteoros ocasionais */
 setInterval(()=>{
 meteoros.push({
 x:Math.random()*canvas.width,
 y:-20,
 dx:-6,
-dy:6,
-size:2
+dy:6
 });
 },1800);
 
 function animar(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
-/* estrelas pulsando */
 estrelas.forEach(e=>{
 ctx.globalAlpha=e.op;
 ctx.fillStyle="white";
@@ -298,7 +284,6 @@ if(e.op<0.2)e.op=0.2;
 if(e.op>1)e.op=1;
 });
 
-/* meteoros com rastro */
 ctx.globalAlpha=1;
 ctx.strokeStyle="#60a5fa";
 ctx.lineWidth=2;
@@ -308,7 +293,6 @@ ctx.beginPath();
 ctx.moveTo(m.x,m.y);
 ctx.lineTo(m.x+25,m.y-25);
 ctx.stroke();
-
 m.x+=m.dx;
 m.y+=m.dy;
 });
@@ -318,3 +302,6 @@ requestAnimationFrame(animar);
 
 animar();
 </script>
+
+</body>
+</html>
