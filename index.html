@@ -302,6 +302,94 @@ requestAnimationFrame(animar);
 
 animar();
 </script>
+<script>
+const canvas=document.getElementById("ceu");
+const ctx=canvas.getContext("2d");
 
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let estrelas=[];
+let estrelasDistantes=[];
+let meteoros=[];
+
+/* estrelas próximas (maiores e mais rápidas) */
+for(let i=0;i<200;i++){
+estrelas.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2+0.5,
+vel:Math.random()*0.2,
+op:Math.random()
+});
+}
+
+/* estrelas distantes (quase paradas) */
+for(let i=0;i<250;i++){
+estrelasDistantes.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*1,
+op:Math.random()
+});
+}
+
+/* meteoros ocasionais */
+setInterval(()=>{
+meteoros.push({
+x:Math.random()*canvas.width,
+y:-20,
+dx:-5,
+dy:5
+});
+},2500);
+
+function animar(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+/* estrelas distantes */
+estrelasDistantes.forEach(e=>{
+ctx.globalAlpha=e.op;
+ctx.fillStyle="white";
+ctx.beginPath();
+ctx.arc(e.x,e.y,e.r,0,Math.PI*2);
+ctx.fill();
+});
+
+/* estrelas próximas */
+estrelas.forEach(e=>{
+ctx.globalAlpha=e.op;
+ctx.fillStyle="white";
+ctx.beginPath();
+ctx.arc(e.x,e.y,e.r,0,Math.PI*2);
+ctx.fill();
+
+e.op+=Math.random()*0.02-0.01;
+if(e.op<0.3)e.op=0.3;
+if(e.op>1)e.op=1;
+
+e.y+=e.vel;
+if(e.y>canvas.height)e.y=0;
+});
+
+/* meteoros suaves */
+ctx.globalAlpha=1;
+ctx.strokeStyle="#93c5fd";
+ctx.lineWidth=2;
+
+meteoros.forEach(m=>{
+ctx.beginPath();
+ctx.moveTo(m.x,m.y);
+ctx.lineTo(m.x+30,m.y-30);
+ctx.stroke();
+m.x+=m.dx;
+m.y+=m.dy;
+});
+
+requestAnimationFrame(animar);
+}
+
+animar();
+</script>
 </body>
 </html>
