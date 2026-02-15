@@ -17,15 +17,20 @@ overflow-x:hidden;
 background:black;
 }
 
-/* FUNDO UNIVERSO */
-#universo{
+/* UNIVERSO ANIMADO */
+#stars{
 position:fixed;
-inset:0;
-background:
-radial-gradient(circle at 20% 30%, #1e3a8a 0%, transparent 40%),
-radial-gradient(circle at 80% 70%, #0ea5e9 0%, transparent 40%),
-black;
+width:100%;
+height:100%;
+background:url("https://i.imgur.com/YKY28eT.png");
+animation:stars 80s linear infinite;
 z-index:-2;
+opacity:.6;
+}
+
+@keyframes stars{
+from{background-position:0 0;}
+to{background-position:-10000px 5000px;}
 }
 
 /* PORTAL */
@@ -42,32 +47,32 @@ transition:1.5s;
 }
 
 .portal-circle{
-width:120px;
-height:120px;
+width:140px;
+height:140px;
 border-radius:50%;
 border:3px solid #60a5fa;
-box-shadow:0 0 40px #60a5fa;
+box-shadow:0 0 60px #60a5fa;
 animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
 0%{transform:scale(1);}
-50%{transform:scale(1.15);}
+50%{transform:scale(1.2);}
 100%{transform:scale(1);}
 }
 
 #portal input{
 margin-top:20px;
-padding:10px;
+padding:12px;
 border-radius:10px;
 border:none;
 }
 
 #portal button{
 margin-top:10px;
-padding:10px 25px;
+padding:10px 30px;
 border:none;
-border-radius:20px;
+border-radius:25px;
 background:#1e3a8a;
 color:white;
 cursor:pointer;
@@ -76,59 +81,54 @@ cursor:pointer;
 /* CONTEÚDO */
 header{
 text-align:center;
-padding:80px 20px 40px;
+padding:100px 20px 40px;
 }
 
 header h1{
 font-family:'Playfair Display',serif;
-font-size:2.8em;
+font-size:3em;
 color:#93c5fd;
+}
+
+header p{
+opacity:.9;
+font-size:1.2em;
 }
 
 section{
 max-width:900px;
 margin:40px auto;
-padding:30px;
-background:rgba(255,255,255,0.05);
+padding:35px;
+background:rgba(255,255,255,0.06);
 border-radius:20px;
-backdrop-filter:blur(10px);
-box-shadow:0 0 25px rgba(59,130,246,.3);
+backdrop-filter:blur(12px);
+box-shadow:0 0 40px rgba(59,130,246,.4);
 }
 
 /* FOTOS */
 .fotos{
 display:flex;
-flex-wrap:wrap;
 justify-content:center;
-gap:15px;
+flex-wrap:wrap;
+gap:20px;
 }
 
 .fotos img{
-width:140px;
-height:140px;
-object-fit:cover;
+width:160px;
+height:160px;
 border-radius:20px;
-box-shadow:0 0 15px #60a5fa;
+object-fit:cover;
+box-shadow:0 0 20px #60a5fa;
 transition:.4s;
 }
 
 .fotos img:hover{
-transform:scale(1.1);
-}
-
-/* BOTÕES */
-button{
-padding:12px 25px;
-border:none;
-border-radius:30px;
-background:#1e3a8a;
-color:#fff;
-cursor:pointer;
+transform:scale(1.1) rotate(1deg);
 }
 
 footer{
 text-align:center;
-padding:30px;
+padding:40px;
 opacity:.7;
 }
 
@@ -137,12 +137,12 @@ opacity:.7;
 
 <body>
 
-<div id="universo"></div>
+<div id="stars"></div>
 
 <!-- PORTAL -->
 <div id="portal">
 <div class="portal-circle"></div>
-<p>Portal liberado só pra jaguatirica 🐆💙</p>
+<p>Entrada liberada só pra dona da rua 🐆💙</p>
 <input type="password" id="senha" placeholder="Senha">
 <button onclick="abrir()">Entrar</button>
 </div>
@@ -153,49 +153,63 @@ src="https://www.youtube.com/embed/bE_A23A_h1c?autoplay=1&loop=1&playlist=bE_A23
 allow="autoplay"></iframe>
 
 <header>
-<h1>Dona da Rua…</h1>
-<p>eu te amo daqui até a lua 🌙</p>
+<h1>Feliz Aniversário 💙</h1>
+<p>
+Eu te amo daqui até a lua…  
+e se tiver outro universo depois, também.
+</p>
 </header>
 
 <section>
-<h2>Promessa</h2>
+<h2>Pra Você</h2>
 <p>
-Eu te prometi uma coisa simples,
-mas gigante:
-fazer você feliz.
-E sigo tentando —
-todo santo dia.
+Hoje é teu dia…  
+mas quem ganhou presente fui eu  
+quando você apareceu na minha vida.
+
+Entre bilhões de pessoas,  
+foi você que virou casa, calma, riso fácil.  
+Minha jaguatirica linda.
 </p>
 </section>
 
 <section>
-<h2>Nossos Retratos</h2>
-
+<h2>Nossos Momentos</h2>
 <div class="fotos">
 <img src="foto1.jpg">
 <img src="foto2.jpg">
 <img src="foto3.jpg">
 </div>
-
-<p style="text-align:center;opacity:.7;">
-Cada foto dessas guarda um pedaço nosso.
-</p>
-
 </section>
 
 <section>
-<h2>Sobre Nós</h2>
+<h2>Minha Promessa</h2>
 <p>
-Entre bilhões de estrelas,
-justo você virou minha constelação favorita.
-Coincidência?
-Prefiro chamar de destino bonito.
+Eu te prometi te fazer feliz…  
+e continuo prometendo todo dia.
+
+Sem perfeição, sem roteiro —  
+só verdade, cuidado  
+e vontade de construir coisa bonita contigo.
+</p>
+</section>
+
+<section>
+<h2>Pra Sempre Nós</h2>
+<p>
+Se a vida for estrada,  
+quero seguir do teu lado.  
+Se for mar, quero ser teu porto.  
+E se for universo…
+
+quero continuar te escolhendo  
+em todas as galáxias.
 </p>
 </section>
 
 <footer>
-Feito sem pressa…
-porque amor bom gosta de tempo.
+Feito com calma…  
+porque amor bom não corre — floresce.
 </footer>
 
 <script>
