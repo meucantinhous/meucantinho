@@ -180,16 +180,50 @@ allowfullscreen>
 Quando essa música toca, eu lembro da gente.
 </p>
 </section><section>
-<h2>Nosso Tempo ⏳💙</h2>
-<p id="cronometro" style="font-size:20px;text-align:center;margin-top:10px;"></p>
-<p style="text-align:center;opacity:.85;margin-top:15px;">
-Desde setembro de 2024 a vida ganhou outro ritmo…
-mais cor, mais riso, mais sentido.
-Se o tempo fosse música,
-a nossa história já seria canção eterna.
-E olha… ainda estamos só no começo.
+<h2>Nosso Tempo ⏳💙</h2><div class="ampulheta"></div><p id="cronometro" style="font-size:22px;text-align:center;margin-top:15px;"></p><div class="yin"></div><p style="text-align:center;opacity:.85;margin-top:20px;line-height:1.6;">
+Desde julho de 2024 o tempo começou a andar diferente…
+mais leve, mais bonito, mais cheio de sentido.
+Cada dia contigo é tipo grão de areia:
+pode parecer pequeno,
+mas junto vira eternidade.
 </p>
-</section><footer>
+</section><style>
+.ampulheta{
+width:60px;
+height:100px;
+border:3px solid #93c5fd;
+border-radius:10px;
+margin:20px auto;
+position:relative;
+overflow:hidden;
+}
+
+.ampulheta::before{
+content:"";
+position:absolute;
+width:100%;
+height:50%;
+background:linear-gradient(#93c5fd,transparent);
+animation:areia 3s linear infinite;
+}
+
+@keyframes areia{
+0%{top:-50%;}
+100%{top:100%;}
+}
+
+.yin{
+width:50px;
+height:50px;
+border-radius:50%;
+margin:15px auto;
+background:linear-gradient(90deg,black 50%,white 50%);
+border:2px solid #ccc;
+}
+</style><script>
+const el=document.getElementById("cronometro");
+if(el) el.innerHTML=`602 dias caminhando juntos`;
+</script><footer>
 Feito com carinho…
 porque amor bonito gosta de tempo.
 </footer><section id="universoFinal">
