@@ -179,6 +179,16 @@ allowfullscreen>
 </iframe><p style="opacity:.8;">
 Quando essa música toca, eu lembro da gente.
 </p>
+</section><section>
+<h2>Nosso Tempo ⏳💙</h2>
+<p id="cronometro" style="font-size:20px;text-align:center;margin-top:10px;"></p>
+<p style="text-align:center;opacity:.85;margin-top:15px;">
+Desde setembro de 2024 a vida ganhou outro ritmo…
+mais cor, mais riso, mais sentido.
+Se o tempo fosse música,
+a nossa história já seria canção eterna.
+E olha… ainda estamos só no começo.
+</p>
 </section><footer>
 Feito com carinho…
 porque amor bonito gosta de tempo.
@@ -283,4 +293,113 @@ requestAnimationFrame(animar);
 
 animar();
 </script></body>
-</html>
+</html><script>
+function abrir(){
+if(document.getElementById("senha").value==="minhalua"){
+document.getElementById("portal").style.opacity="0";
+setTimeout(()=>{document.getElementById("portal").style.display="none";},2000);
+}else alert("Senha errada 👀");
+}
+
+function playMusic(){
+const video=document.getElementById("videoMusica");
+video.style.display="block";
+video.src+="?autoplay=1";
+}
+
+/* UNIVERSO FINAL CINEMATOGRÁFICO */
+
+const canvas=document.getElementById("ceu");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let estrelas=[];
+let meteoros=[];
+let asteroides=[];
+let planetas=[];
+
+/* estrelas */
+for(let i=0;i<300;i++){
+estrelas.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+op:Math.random()
+});
+}
+
+/* planetas */
+planetas.push({x:200,y:150,r:40,color:"#60a5fa"});
+planetas.push({x:canvas.width-250,y:300,r:30,color:"#9333ea"});
+
+/* meteoros */
+setInterval(()=>{
+meteoros.push({
+x:Math.random()*canvas.width,
+y:-20,
+dx:-6,
+dy:6
+});
+},2000);
+
+/* asteroides */
+setInterval(()=>{
+asteroides.push({
+x:Math.random()*canvas.width,
+y:-20,
+dx:-2,
+dy:2,
+size:5+Math.random()*5
+});
+},4000);
+
+function animar(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+/* estrelas */
+estrelas.forEach(e=>{
+ctx.globalAlpha=e.op;
+ctx.fillStyle="white";
+ctx.beginPath();
+ctx.arc(e.x,e.y,e.r,0,Math.PI*2);
+ctx.fill();
+});
+
+/* planetas */
+ctx.globalAlpha=.6;
+planetas.forEach(p=>{
+ctx.fillStyle=p.color;
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+});
+
+/* meteoros */
+ctx.globalAlpha=1;
+ctx.strokeStyle="#60a5fa";
+meteoros.forEach(m=>{
+ctx.beginPath();
+ctx.moveTo(m.x,m.y);
+ctx.lineTo(m.x+30,m.y-30);
+ctx.stroke();
+m.x+=m.dx;
+m.y+=m.dy;
+});
+
+/* asteroides */
+ctx.fillStyle="#888";
+asteroides.forEach(a=>{
+ctx.beginPath();
+ctx.arc(a.x,a.y,a.size,0,Math.PI*2);
+ctx.fill();
+a.x+=a.dx;
+a.y+=a.dy;
+});
+
+requestAnimationFrame(animar);
+}
+
+animar();
+</script>
