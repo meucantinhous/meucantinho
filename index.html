@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nosso Universo</title>
+<title>Feliz Aniversário, Meu Amor</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
@@ -12,20 +12,20 @@
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-color:#fff;
-overflow-x:hidden;
 background:black;
+color:white;
+overflow-x:hidden;
 }
 
-/* UNIVERSO ANIMADO */
+/* ESTRELAS */
 #stars{
 position:fixed;
 width:100%;
 height:100%;
 background:url("https://i.imgur.com/YKY28eT.png");
-animation:stars 80s linear infinite;
-z-index:-2;
+animation:stars 100s linear infinite;
 opacity:.6;
+z-index:-2;
 }
 
 @keyframes stars{
@@ -40,18 +40,18 @@ inset:0;
 background:black;
 display:flex;
 flex-direction:column;
-justify-content:center;
 align-items:center;
+justify-content:center;
 z-index:999;
 transition:1.5s;
 }
 
 .portal-circle{
-width:140px;
-height:140px;
+width:150px;
+height:150px;
 border-radius:50%;
 border:3px solid #60a5fa;
-box-shadow:0 0 60px #60a5fa;
+box-shadow:0 0 80px #60a5fa;
 animation:pulse 2s infinite;
 }
 
@@ -61,27 +61,10 @@ animation:pulse 2s infinite;
 100%{transform:scale(1);}
 }
 
-#portal input{
-margin-top:20px;
-padding:12px;
-border-radius:10px;
-border:none;
-}
-
-#portal button{
-margin-top:10px;
-padding:10px 30px;
-border:none;
-border-radius:25px;
-background:#1e3a8a;
-color:white;
-cursor:pointer;
-}
-
-/* CONTEÚDO */
+/* CABEÇALHO */
 header{
 text-align:center;
-padding:100px 20px 40px;
+padding:100px 20px;
 }
 
 header h1{
@@ -91,25 +74,26 @@ color:#93c5fd;
 }
 
 header p{
+font-size:1.3em;
 opacity:.9;
-font-size:1.2em;
 }
 
+/* SEÇÕES */
 section{
 max-width:900px;
 margin:40px auto;
-padding:35px;
-background:rgba(255,255,255,0.06);
+padding:30px;
+background:rgba(255,255,255,0.05);
 border-radius:20px;
 backdrop-filter:blur(12px);
-box-shadow:0 0 40px rgba(59,130,246,.4);
+box-shadow:0 0 35px rgba(59,130,246,.4);
 }
 
 /* FOTOS */
 .fotos{
 display:flex;
-justify-content:center;
 flex-wrap:wrap;
+justify-content:center;
 gap:20px;
 }
 
@@ -124,6 +108,22 @@ transition:.4s;
 
 .fotos img:hover{
 transform:scale(1.1) rotate(1deg);
+}
+
+/* BOTÕES */
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:#1e3a8a;
+color:white;
+cursor:pointer;
+}
+
+/* CONTADOR */
+#contador{
+font-size:1.4em;
+text-align:center;
 }
 
 footer{
@@ -142,7 +142,7 @@ opacity:.7;
 <!-- PORTAL -->
 <div id="portal">
 <div class="portal-circle"></div>
-<p>Entrada liberada só pra dona da rua 🐆💙</p>
+<p>Entrada VIP só pra Jaciane 💙</p>
 <input type="password" id="senha" placeholder="Senha">
 <button onclick="abrir()">Entrar</button>
 </div>
@@ -153,28 +153,26 @@ src="https://www.youtube.com/embed/bE_A23A_h1c?autoplay=1&loop=1&playlist=bE_A23
 allow="autoplay"></iframe>
 
 <header>
-<h1>Feliz Aniversário 💙</h1>
+<h1>Feliz aniversário, meu amor 🎂</h1>
 <p>
-Eu te amo daqui até a lua…  
-e se tiver outro universo depois, também.
+23 de fevereiro virou meu dia favorito —  
+porque foi o dia que nasceu quem bagunçou meu mundo.
 </p>
 </header>
 
 <section>
-<h2>Pra Você</h2>
+<h2>Pra Você, Jaciane</h2>
 <p>
-Hoje é teu dia…  
-mas quem ganhou presente fui eu  
-quando você apareceu na minha vida.
+Amor… você é mistura de calma com tempestade boa.  
+Minha jaguatirica linda, dona da rua, dona do meu sorriso.
 
-Entre bilhões de pessoas,  
-foi você que virou casa, calma, riso fácil.  
-Minha jaguatirica linda.
+Eu te amo daqui até a lua —  
+e se tiver outro universo depois, eu continuo indo.
 </p>
 </section>
 
 <section>
-<h2>Nossos Momentos</h2>
+<h2>Nossos Momentos 📸</h2>
 <div class="fotos">
 <img src="foto1.jpg">
 <img src="foto2.jpg">
@@ -183,33 +181,39 @@ Minha jaguatirica linda.
 </section>
 
 <section>
-<h2>Minha Promessa</h2>
+<h2>Minha Promessa ❤️</h2>
 <p>
-Eu te prometi te fazer feliz…  
-e continuo prometendo todo dia.
+Eu prometi te fazer feliz… lembra?
 
-Sem perfeição, sem roteiro —  
-só verdade, cuidado  
-e vontade de construir coisa bonita contigo.
+Então sigo tentando:  
+com cuidado, risada besta, carinho fora de hora  
+e aquele amor que não faz barulho  
+mas fica.
 </p>
 </section>
 
 <section>
-<h2>Pra Sempre Nós</h2>
-<p>
-Se a vida for estrada,  
-quero seguir do teu lado.  
-Se for mar, quero ser teu porto.  
-E se for universo…
+<h2>Tempo ao Seu Lado</h2>
+<p id="contador"></p>
+</section>
 
-quero continuar te escolhendo  
-em todas as galáxias.
+<section>
+<h2>Carta aberta 💌</h2>
+<p>
+Não prometo perfeição —  
+prometo presença.
+
+Não prometo facilidade —  
+prometo parceria.
+
+E enquanto existir caminho,  
+eu quero trilhar contigo.
 </p>
 </section>
 
 <footer>
-Feito com calma…  
-porque amor bom não corre — floresce.
+Feito com carinho…  
+porque quando é você, tudo vale a pena.
 </footer>
 
 <script>
@@ -221,6 +225,14 @@ document.getElementById("portal").style.display="none";
 },1500);
 }else alert("Senha errada 👀");
 }
+
+/* CONTADOR */
+const inicio=new Date("2024-08-10");
+const hoje=new Date();
+const dias=Math.floor((hoje-inicio)/(1000*60*60*24));
+
+document.getElementById("contador").innerHTML =
+"Já são <b>"+dias+" dias</b> desde que você entrou na minha vida 💙";
 </script>
 
 </body>
