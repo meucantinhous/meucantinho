@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html><html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz aniversário, meu amor</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-
-<style>
+<title>Feliz aniversário, meu amor</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet"><style>
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
@@ -16,7 +11,6 @@ color:white;
 overflow-x:hidden;
 }
 
-/* GALÁXIA FUNDO */
 #stars{
 position:fixed;
 width:100%;
@@ -32,7 +26,6 @@ from{background-position:0 0;}
 to{background-position:-10000px 5000px;}
 }
 
-/* PORTAL */
 #portal{
 position:fixed;
 inset:0;
@@ -55,9 +48,9 @@ animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.25);}
-100%{transform:scale(1);}
+0%{transform:scale(1);} 
+50%{transform:scale(1.25);} 
+100%{transform:scale(1);} 
 }
 
 header{
@@ -97,9 +90,8 @@ box-shadow:0 0 25px #60a5fa;
 transition:.5s;
 }
 
-.fotos img:hover{transform:scale(1.15);}
+.fotos img:hover{transform:scale(1.15);} 
 
-/* PLAYER */
 .music-player{text-align:center;}
 
 .play-btn{
@@ -113,7 +105,7 @@ box-shadow:0 0 20px #60a5fa;
 transition:.4s;
 }
 
-.play-btn:hover{transform:scale(1.1);}
+.play-btn:hover{transform:scale(1.1);} 
 
 #videoMusica{
 display:none;
@@ -122,7 +114,6 @@ border-radius:20px;
 margin-top:20px;
 }
 
-/* FINAL UNIVERSO */
 #universoFinal{
 height:100vh;
 background:black;
@@ -148,86 +139,55 @@ color:#93c5fd;
 }
 
 footer{text-align:center;padding:40px;opacity:.7;}
-</style>
-</head>
-
-<body>
-
-<div id="stars"></div>
-
-<!-- PORTAL -->
-<div id="portal">
+</style></head><body><div id="stars"></div><div id="portal">
 <div class="portal-circle"></div>
 <p>Entrada VIP só pra Jaciane 💙</p>
 <input type="password" id="senha" placeholder="Senha">
 <button onclick="abrir()">Entrar</button>
-</div>
-
-<header>
+</div><header>
 <h1>Feliz aniversário, meu amor 🎂</h1>
 <p>23 de fevereiro… o dia que nasceu quem mudou meu mundo.</p>
-</header>
-
-<section>
+</header><section>
 <h2>Pra Você</h2>
 <p>
 Minha jaguatirica linda, dona da rua e do meu coração.
 Eu te amo daqui até a lua…
 e se existir outro universo, também.
 </p>
-</section>
-
-<section>
+</section><section>
 <h2>Nossos Momentos 📸</h2>
 <div class="fotos">
 <img src="foto1.jpg">
 <img src="foto2.jpg">
 <img src="foto3.jpg">
 </div>
-</section>
-
-<section>
+</section><section>
 <h2>Minha Promessa ❤️</h2>
 <p>
 Eu prometi te fazer feliz…
 e sigo prometendo todos os dias.
 Sem perfeição — só verdade.
 </p>
-</section>
-
-<section class="music-player">
-<h2>Nossa música 🎵</h2>
-
-<div class="play-btn" onclick="playMusic()">
+</section><section class="music-player">
+<h2>Nossa música 🎵</h2><div class="play-btn" onclick="playMusic()">
 💙 Tocar nossa música
-</div>
-
-<iframe id="videoMusica"
+</div><iframe id="videoMusica"
 src="https://www.youtube.com/embed/bE_A23A_h1c"
 frameborder="0"
 allow="autoplay; encrypted-media"
 allowfullscreen>
-</iframe>
-
-<p style="opacity:.8;">
+</iframe><p style="opacity:.8;">
 Quando essa música toca, eu lembro da gente.
 </p>
-</section>
-
-<footer>
+</section><footer>
 Feito com carinho…
 porque amor bonito gosta de tempo.
-</footer>
-
-<!-- UNIVERSO FINAL -->
-<section id="universoFinal">
+</footer><section id="universoFinal">
 <canvas id="ceu"></canvas>
 <div class="texto-final">
 ✨ E mesmo depois de tudo… ainda é você 💙
 </div>
-</section>
-
-<script>
+</section><script>
 function abrir(){
 if(document.getElementById("senha").value==="minhalua"){
 document.getElementById("portal").style.opacity="0";
@@ -235,64 +195,12 @@ setTimeout(()=>{document.getElementById("portal").style.display="none";},2000);
 }else alert("Senha errada 👀");
 }
 
-function playM(){
+function playMusic(){
 const video=document.getElementById("videoMusica");
 video.style.display="block";
 video.src+="?autoplay=1";
 }
 
-/* UNIVERSO REALISTA FINAL */
-const canvas=document.getElementById("ceu");
-const ctx=canvas.getContext("2d");
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let estrelas=[];
-let meteoros=[];
-
-
-function animar(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-/* estrelas distantes */
-estrelasDistantes.forEach(e=>{
-ctx.globalAlpha=e.op;
-ctx.fillStyle="white";
-ctx.beginPath();
-ctx.arc(e.x,e.y,e.r,0,Math.PI*2);
-ctx.fill();
-});
-
-/* estrelas próximas */
-estrelas.forEach(e=>{
-ctx.globalAlpha=e.op;
-ctx.fillStyle="white";
-ctx.beginPath();
-ctx.arc(e.x,e.y,e.r,0,Math.PI*2);
-ctx.fill();
-
-e.op+=Math.random()*0.02-0.01;
-if(e.op<0.3)e.op=0.3;
-if(e.op>1)e.op=1;
-
-e.y+=e.vel;
-if(e.y>canvas.height)e.y=0;
-});
-/* meteoros suaves */
-ctx.globalAlpha=1;
-ctx.strokeStyle="#93c5fd";
-ctx.lineWidth=2;
-
-meteoros.forEach(m=>{
-ctx.beginPath();
-ctx.moveTo(m.x,m.y);
-ctx.lineTo(m.x+30,m.y-30);
-ctx.stroke();
-m.x+=m.dx;
-m.y+=m.dy;
-</script>
-  <script>
 const canvas=document.getElementById("ceu");
 const ctx=canvas.getContext("2d");
 
@@ -303,7 +211,6 @@ let estrelas=[];
 let estrelasDistantes=[];
 let meteoros=[];
 
-/* estrelas próximas (maiores e mais rápidas) */
 for(let i=0;i<200;i++){
 estrelas.push({
 x:Math.random()*canvas.width,
@@ -314,7 +221,6 @@ op:Math.random()
 });
 }
 
-/* estrelas distantes (quase paradas) */
 for(let i=0;i<250;i++){
 estrelasDistantes.push({
 x:Math.random()*canvas.width,
@@ -324,7 +230,6 @@ op:Math.random()
 });
 }
 
-/* meteoros ocasionais */
 setInterval(()=>{
 meteoros.push({
 x:Math.random()*canvas.width,
@@ -337,7 +242,6 @@ dy:5
 function animar(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
-/* estrelas distantes */
 estrelasDistantes.forEach(e=>{
 ctx.globalAlpha=e.op;
 ctx.fillStyle="white";
@@ -346,7 +250,6 @@ ctx.arc(e.x,e.y,e.r,0,Math.PI*2);
 ctx.fill();
 });
 
-/* estrelas próximas */
 estrelas.forEach(e=>{
 ctx.globalAlpha=e.op;
 ctx.fillStyle="white";
@@ -362,7 +265,6 @@ e.y+=e.vel;
 if(e.y>canvas.height)e.y=0;
 });
 
-/* meteoros suaves */
 ctx.globalAlpha=1;
 ctx.strokeStyle="#93c5fd";
 ctx.lineWidth=2;
@@ -376,9 +278,9 @@ m.x+=m.dx;
 m.y+=m.dy;
 });
 
-requestAnimationFrame(animar);}
+requestAnimationFrame(animar);
+}
 
 animar();
-</script>
-</body>
+</script></body>
 </html>
